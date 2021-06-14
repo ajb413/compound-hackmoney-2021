@@ -5,6 +5,11 @@ const ethSupplyInput = document.getElementById('eth-supply');
 const ethSupplyButton = document.getElementById('eth-supply-button');
 const ethRedeemInput = document.getElementById('eth-redeem');
 const ethRedeemButton = document.getElementById('eth-redeem-button');
+const usdcApyElement = document.getElementById('usdc-apy');
+const usdcSupplyInput = document.getElementById('usdc-supply');
+const usdcSupplyButton = document.getElementById('usdc-supply-button');
+const usdcRedeemInput = document.getElementById('usdc-redeem');
+const usdcRedeemButton = document.getElementById('usdc-redeem-button');
 const enableEthereumButton = document.getElementById('enable-button');
 
 enableEthereumButton.onclick = async () => {
@@ -19,6 +24,16 @@ ethSupplyButton.onclick = async () => {
 ethRedeemButton.onclick = async () => {
   const amount = +ethRedeemInput.value;
   await redeem(Compound.cETH, amount);
+};
+
+usdcSupplyButton.onclick = async () => {
+  const amount = +usdcSupplyInput.value;
+  await supply(Compound.USDC, amount);
+};
+
+usdcRedeemButton.onclick = async () => {
+  const amount = +usdcRedeemInput.value;
+  await redeem(Compound.cUSDC, amount);
 };
 
 async function supply(asset, amount) {
@@ -64,4 +79,6 @@ async function calculateApy(asset) {
 window.addEventListener('load', async (event) => {
   const ethApy = await calculateApy('ETH');
   ethApyElement.innerText = ethApy.toFixed(2);
+  const usdcApy = await calculateApy('USDC');
+  usdcApyElement.innerText = usdcApy.toFixed(2);
 });
