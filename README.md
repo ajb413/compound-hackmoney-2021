@@ -2,6 +2,8 @@
 
 This repository contains a very basic UI that uses the Compound Protocol. The app enables users to earn interest on their crypto assets by supplying them to the protocol. Users can also redeem their cTokens.
 
+Youtube Livestream: https://youtu.be/49aDBZjK0uk
+
 The app currently supports ETH, and during the workshop, I will walk through adding support for USDC. See the `support_usdc` branch for those code changes.
 
 To run the web app locally, use npm to install [http-server](https://www.npmjs.com/package/http-server), and run it from the project root directory.
